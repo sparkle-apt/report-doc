@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Metrics" href="metrics.html" />
-    <link rel="prev" title="Report - A Tool for Strategy Performance Evaluation and report" href="include_readme.html" /> 
+    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,12 +41,24 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="include_readme.html">Report - A Tool for Strategy Performance Evaluation and report</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="include_readme.html">Report - A Tool for Strategy Performance Evaluation and Report</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#communication">Communication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#releases-and-contributing">Releases and Contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#the-team">The Team</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#advanced-usage">Advanced usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#user-defined-metrics">User-defined metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#by-group-analysis">By-group analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -118,8 +130,8 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="report.rule_reporter.RuleReporter.default_metric_names">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_metric_names</span></span><a class="headerlink" href="#report.rule_reporter.RuleReporter.default_metric_names" title="Permalink to this definition"></a></dt>
-<dd><p>Default metrics to compute, which are <code class="xref py py-class docutils literal notranslate"><span class="pre">report.Metrics.N</span></code> and 
-<code class="xref py py-class docutils literal notranslate"><span class="pre">report.Metrics.GMV</span></code></p>
+<dd><p>Default metrics to compute, which are <a class="reference internal" href="metrics.html#report.metrics.N" title="report.metrics.N"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.N</span></code></a> and 
+<a class="reference internal" href="metrics.html#report.metrics.GMV" title="report.metrics.GMV"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.GMV</span></code></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -135,7 +147,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
-<li><p><strong>metric</strong> (<a class="reference internal" href="metrics.html#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – child class of <code class="xref py py-class docutils literal notranslate"><span class="pre">report.Metrics.BaseMetric</span></code></p></li>
+<li><p><strong>metric</strong> (<a class="reference internal" href="metrics.html#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – child class of <a class="reference internal" href="metrics.html#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.BaseMetric</span></code></a></p></li>
 </ul>
 </dd>
 </dl>
@@ -169,7 +181,7 @@
 <code class="docutils literal notranslate"><span class="pre">col_names</span></code> (optional), and other columns required by computation in <code class="docutils literal notranslate"><span class="pre">rules</span></code></p></li>
 <li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
 <li><p><strong>metric_names</strong> (<em>list</em>) – list of metric names to compute; for non built-in metrics, need to first
-register by calling <code class="xref py py-func docutils literal notranslate"><span class="pre">report.rule_reporter.RuleReporter.register_metric()`()</span></code>; 
+register by calling <a class="reference internal" href="#report.rule_reporter.RuleReporter.register_metric" title="report.rule_reporter.RuleReporter.register_metric"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.rule_reporter.RuleReporter.register_metric()</span></code></a>; 
 <code class="docutils literal notranslate"><span class="pre">n</span></code> and <code class="docutils literal notranslate"><span class="pre">gmv</span></code> are by default computed</p></li>
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column, defaults to None, where weights of orders 
 are treated as <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
@@ -233,7 +245,7 @@ to compute ntl, need to specify the column name of ntl in dataframe:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="include_readme.html" class="btn btn-neutral float-left" title="Report - A Tool for Strategy Performance Evaluation and report" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="metrics.html" class="btn btn-neutral float-right" title="Metrics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

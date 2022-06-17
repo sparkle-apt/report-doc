@@ -41,12 +41,24 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="include_readme.html">Report - A Tool for Strategy Performance Evaluation and report</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="include_readme.html">Report - A Tool for Strategy Performance Evaluation and Report</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#communication">Communication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#releases-and-contributing">Releases and Contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="include_readme.html#the-team">The Team</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#advanced-usage">Advanced usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#user-defined-metrics">User-defined metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#by-group-analysis">By-group analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -203,7 +215,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_accuracy">
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -211,7 +223,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_coverage">
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -225,14 +237,14 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_diff">
 <span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_diff" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_impact">
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -276,8 +288,8 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.N.compute_impact">
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(total</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.N.compute_diff" title="report.metrics.N.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.N.compute_diff()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">total</span></code> is computed by <a class="reference internal" href="#report.metrics.N.compute_total" title="report.metrics.N.compute_total"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.N.compute_total()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.N.compute_diff" title="report.metrics.N.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.N.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">total</span></code> is computed by <a class="reference internal" href="#report.metrics.N.compute_total" title="report.metrics.N.compute_total"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.N.compute_total()</span></code></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -304,7 +316,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.N.compute_accuracy">
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -318,7 +330,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.N.compute_coverage">
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -332,7 +344,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.N.compute_diff">
 <span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_diff" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -451,7 +463,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.GMV.compute_accuracy">
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -465,7 +477,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.GMV.compute_coverage">
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -479,14 +491,14 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.GMV.compute_diff">
 <span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_diff" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="report.metrics.GMV.compute_impact">
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -606,7 +618,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.NTL.compute_accuracy">
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -620,7 +632,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.NTL.compute_coverage">
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -634,14 +646,14 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.NTL.compute_diff">
 <span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_diff" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="report.metrics.NTL.compute_impact">
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -754,8 +766,8 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.DCNT.compute_impact">
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">total</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.DCNT.compute_diff" title="report.metrics.DCNT.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.DCNT.compute_diff()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">total</span></code> is computed by <a class="reference internal" href="#report.metrics.DCNT.compute_total" title="report.metrics.DCNT.compute_total"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.DCNT.compute_total()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.DCNT.compute_diff" title="report.metrics.DCNT.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.DCNT.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">total</span></code> is computed by <a class="reference internal" href="#report.metrics.DCNT.compute_total" title="report.metrics.DCNT.compute_total"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.DCNT.compute_total()</span></code></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -782,7 +794,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.DCNT.compute_accuracy">
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -796,7 +808,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.DCNT.compute_coverage">
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -804,7 +816,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.DCNT.compute_diff">
 <span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_diff" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -922,7 +934,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.PXDY.compute_accuracy">
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -936,7 +948,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.PXDY.compute_coverage">
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -950,14 +962,14 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.PXDY.compute_diff">
 <span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_diff" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="report.metrics.PXDY.compute_impact">
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -1077,7 +1089,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.P2D0.compute_accuracy">
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -1091,7 +1103,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.P2D0.compute_coverage">
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -1105,14 +1117,14 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.P2D0.compute_diff">
 <span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_diff" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="report.metrics.P2D0.compute_impact">
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -1237,7 +1249,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.P2D14.compute_accuracy">
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -1251,7 +1263,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.P2D14.compute_coverage">
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -1265,14 +1277,14 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.P2D14.compute_diff">
 <span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_diff" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="report.metrics.P2D14.compute_impact">
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -1397,7 +1409,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.CB.compute_accuracy">
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -1411,7 +1423,7 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.CB.compute_coverage">
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
@@ -1425,14 +1437,14 @@ compute counts</p></li>
 <dt class="sig sig-object py" id="report.metrics.CB.compute_diff">
 <span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_diff" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="report.metrics.CB.compute_impact">
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
-<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
 <code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 

@@ -20,6 +20,12 @@ Report is a evaluation tool that provides the following features:
    :caption: Quick Start
 
    include_readme
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorial
+
+   tutorial
    
 .. toctree::
    :maxdepth: 2

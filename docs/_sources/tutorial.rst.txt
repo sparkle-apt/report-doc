@@ -1,0 +1,283 @@
+Tutorial
+##########
+
+In this tutorial, we will walk you through basic usage as well as advanced ones of the tool. 
+There are also detailed examples in `examples` directory. These are good pointers to start with.
+
+Basic usage
+*****************
+
+First thing first, an input *table* should be prepared and fed into the tool. The table is expected to be 
+order level, namely, one row for each order. It contains for each order several columns, including 
+order amount, sample weight (optional), decline decision (equal 1 if decline and 0 otherwise), and others 
+required to compute metrics. For instance, if a user needs to compute NTL metric, the table should contain a 
+column of NTL.
+
+Suppose the prepared table contains order amount column named ``gmv``, sample weight column named ``weight``, 
+NTL column named ``loss2``, and decline decision columns for two rules named 
+``eu_fraud_online_whitepages_general_reject`` and ``other_reject``. Then, to use :py:class:`RuleReporter` to evalute 
+the NTL accuracy and NTL coverage of these two rules, one can simply follow the code snippet below:
+
+.. code-block:: python
+
+    reporter = RuleReporter()
+
+    metric_names = ['ntl']
+    amt_name = 'gmv'
+    weight_name = 'weight'
+    benchmark_name = None
+    dcl_dcsn_names = ['eu_fraud_online_whitepages_general_reject', 'other_reject']
+    col_names = {
+        'ntl': {
+            'base_name': 'loss2' # need to tell RuleReporter which column is ntl
+        }
+    }
+
+    reporter = RuleReporter()
+
+    res = reporter.evaluate(
+        raw, amt_name, metric_names=metric_names, weight_name=weight_name, 
+        dcl_dcsn_names=dcl_dcsn_names, 
+        benchmark_name=benchmark_name, n_jobs=2, 
+        col_names=col_names
+    )
+
+One can view the result using ``res.head()`` or directly ``res`` in notebook. The default display may be a bit 
+boring, and hard to read. The tool provides a method to decorate the display as follows:
+
+.. code-block:: python
+    
+    reporter.decorate(res)
+
+With highlighting and borders and other stuff, it would be easier to track performance of rules.
+
+But this is not the end of it. As some rules use model score as input, it is often frustrating to 
+find a good cutoff that maximizes performance of the rule. To mitigate this issue, the tool provides 
+a functionality that allows one evaluates rules with different parameterization at the same time.
+
+To make this happen, one needs to type two lines to define a model strategy, as shown in ``hrm_rule``. Note how
+cutoffs that are to be adjusted are specified. Next, one generates ``rule_params`` containing all 
+combinations of cutoffs to evaluate. Note also that compared to the previous example, we set a benchmark by 
+providing ``eu_fraud_online_whitepages_general_reject`` to ``benchmark_name``. With this setting, the rule 
+reporter will not only evalute metrics of each rule, but also compute lift of rules with respect to the 
+benchmark rule.
+
+.. code-block:: python
+
+    def hrm_rule(data, score_cutoff=500, amt_cutoff=100):
+        return (data['score'] >= score_cutoff) & (data['gmv'] >= amt_cutoff)
+
+    reporter = RuleReporter()
+
+    metric_names = ['ntl']
+    amt_name = 'gmv'
+    weight_name = None
+    benchmark_name = 'eu_fraud_online_whitepages_general_reject'
+    dcl_dcsn_names = ['eu_fraud_online_whitepages_general_reject']
+    col_names = {
+        'ntl': {
+            'base_name': 'loss2'
+        }
+    }
+    rules = {
+        'hrm_rule': {
+            'rule': hrm_rule,
+        }
+    }
+
+    # set values you wanna try
+    rule_params = []
+    score_cutoffs = [100, 150, 200]
+    amt_cutoffs = [100, 200, 300]
+    for score_cutoff, amt_cutoff in product(score_cutoffs, amt_cutoffs):
+        rule_params.append(
+            {
+                'hrm_rule': {
+                    'score_cutoff': score_cutoff,
+                    'amt_cutoff': amt_cutoff
+                }
+            }
+        )
+        
+    res = reporter.evaluate(
+        raw, amt_name, params=rule_params, metric_names=metric_names, 
+        weight_name=weight_name, dcl_dcsn_names=dcl_dcsn_names, rules=rules, 
+        benchmark_name=benchmark_name, n_jobs=2, 
+        col_names=col_names
+    )
+        
+        
+Advanced usage
+*****************
+
+User-defined metrics
+---------------------
+
+Understanding that evaluating rule performance requires appropriate and comprehensive metrics which are subject to 
+refinement, we provide both off-the-shelf commonly used metrics and easy interface to add customized ones. 
+
+Metrics are Python Classes in the tool. All existing metrics can be found in :py:mod:`report.metrics` 
+and include GMV, NTL, P2D0, etc. They all inherit :py:class:`report.metrics.BaseMetric`. Before struggling 
+with implementing your own metric, please first take a look at existing ones and only take the effort if 
+none satisfies your need.
+
+To implement one's own metric, the tool provides several ways depending on how customized the metric is. If its 
+computation is the same as NTL but with different definition of loss, one can simply register the metric as follows:
+
+.. code-block:: python
+
+    reporter = RuleReporter()
+    reporter.register_metric('new_loss', metrics.NTL)
+    
+This tells :py:class:`reporter.RuleReporter` that there is a new metric called ``new_loss``. 
+
+To evaluate rules with the new metric, one needs to tell which column in the input table 
+indicates ``new_loss`` (support that's ``new_ntl``), and calls ``reporter`` as follows:
+
+.. code-block:: python
+
+    col_names = {
+        'new_loss': {
+            'base_name': 'new_ntl'
+        }
+    }
+    
+    res = reporter.evaluate(
+        raw, amt_name, params=rule_params, metric_names=metric_names, 
+        weight_name=weight_name, dcl_dcsn_names=dcl_dcsn_names, rules=rules, 
+        benchmark_name=benchmark_name, n_jobs=2, 
+        col_names=col_names
+    )
+
+However, if the logic of the new metric is different from that of NTL, but they differ only in the denominators when 
+computing accuracy, coverage, and impact, one can follow the previous example with only one change. Namely, one needs 
+to specify which columns are used for denominators.
+
+.. code-block:: python
+
+    
+    reporter = RuleReporter()
+    reporter.register_metric('new_loss', metrics.NTL)
+    
+    col_names = {
+        'new_loss': {
+            'base_name': 'new_ntl',
+            'acc_denom_name': 'gmv', # if not provided, accuracy would not be computed
+            'cov_denom_name': 'loss',
+            'imp_denom_name': 'gmv',
+        }
+    }
+    
+    res = reporter.evaluate(
+        raw, amt_name, params=rule_params, metric_names=metric_names, 
+        weight_name=weight_name, dcl_dcsn_names=dcl_dcsn_names, rules=rules, 
+        benchmark_name=benchmark_name, n_jobs=2, 
+        col_names=col_names
+    )
+
+Note that if some of denominators are not provided, say ``acc_denom_name`` remains ``None``, then accuracy will not be 
+computed for ``new_loss``.
+
+Most use cases should be covered by the above two examples. Sometimes, one may propose a customized metric that cannot 
+fit into any of existing metric conventions. In this case, some effort is needed for implementation.
+
+To implement, one needs to create a new class of metric inheriting :py:class:`report.metrics.BaseMetric`, and 
+implement customized methods of computing ``total``, ``decline``, ``accuracy``, ``coverage``, ``diff``, and 
+``impact``.
+
+Here is an example on how to create a customized metric that focuses on distinct count of a specific column, such as 
+consumer, or device.
+
+.. code-block:: python
+
+    class DCNT(BaseMetric):
+    """Distinct count"""
+    
+    def __init__(
+        self, 
+        name='dcnt',
+        df=None, 
+        rule_name=None, 
+        amt_name=None, 
+        weight_name=None, 
+        base_name=None,
+        total=None,
+        eps=1e-8
+    ):        
+    
+        super().__init__(
+            name=name,
+            df=df, 
+            rule_name=rule_name, 
+            amt_name=amt_name, 
+            weight_name=weight_name, 
+            base_name=base_name,
+            acc_denom_name=None,
+            cov_denom_name=None,
+            imp_denom_name=base_name,
+            total=total,
+            eps=eps
+        )
+        
+        _asset_not_none({'base_name': base_name})
+        
+    def compute_total(self):
+        """
+        Total unique number of ``base_name``
+        """
+        
+        if self._total is not None:
+            return
+            
+        _base_val = self._get_base_val()
+        self._total = _base_val.nunique()
+            
+    def compute_decline(self):
+        """
+        Total unique number of ``base_name`` that is declined
+        """
+        
+        if self._decline is not None:
+            return
+        
+        _base_val = self._get_base_val()
+        _dcl_dcsn = self._get_dcl_dcsn()
+        self._decline = _base_val.loc[_dcl_dcsn == 1].nunique()
+
+    def compute_impact(self, other):
+        """
+        Equivalent to ``100. * diff / total``, where 
+        ``diff`` is computed by :py:meth:`report.metrics.DCNT.compute_diff`, and 
+        ``total`` is computed by :py:meth:`report.metrics.DCNT.compute_total`
+        """
+        
+        if type(self) is not type(other):
+            raise TypeError('The other metric object has different class!')
+            
+        self.compute_base()
+        _diff = self.compute_diff(other) 
+        _impact = 100. * _diff / (self._total + self._eps)
+        
+        return _impact
+
+Note that one does not need to implement the methods that are the same as in :py:class:`report.metrics.BaseMetric`.
+
+By-group analysis
+------------------
+
+To conduct by-group analysis, such as performance for each region or customer tenure, one need only specify 
+``group_name`` with the name of the column in the input table indicating groups. Note that for the purpose of 
+efficiency, the number of groups is not allowed to exceed :py:meth:`report.rule_reporter.RuleReporter.max_group_num`. 
+One can adjust the default max group number by initializing :py:class:`report.rule_reporter.RuleReporter` with 
+the overridden value.
+
+.. code-block:: python
+
+    reporter = RuleReporter(max_group_num=10) # change to 10
+    
+    res = reporter.evaluate(
+        raw, amt_name, params=rule_params, metric_names=metric_names, 
+        weight_name=weight_name, dcl_dcsn_names=dcl_dcsn_names, rules=rules, 
+        benchmark_name=benchmark_name, n_jobs=2, 
+        col_names=col_names, group_name='cust_tenure'
+    )
