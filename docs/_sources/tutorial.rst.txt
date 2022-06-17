@@ -15,7 +15,8 @@ column of NTL.
 
 Suppose the prepared table contains order amount column named ``gmv``, sample weight column named ``weight``, 
 NTL column named ``loss2``, and decline decision columns for two rules named 
-``eu_fraud_online_whitepages_general_reject`` and ``other_reject``. Then, to use :py:class:`RuleReporter` to evalute 
+``eu_fraud_online_whitepages_general_reject`` and ``other_reject``. Then, to use 
+:py:class:`report.rule_reporter.RuleReporter` to evalute 
 the NTL accuracy and NTL coverage of these two rules, one can simply follow the code snippet below:
 
 .. code-block:: python
@@ -131,7 +132,7 @@ computation is the same as NTL but with different definition of loss, one can si
     reporter = RuleReporter()
     reporter.register_metric('new_loss', metrics.NTL)
     
-This tells :py:class:`reporter.RuleReporter` that there is a new metric called ``new_loss``. 
+This tells :py:class:`report.rule_reporter.RuleReporter` that there is a new metric called ``new_loss``. 
 
 To evaluate rules with the new metric, one needs to tell which column in the input table 
 indicates ``new_loss`` (support that's ``new_ntl``), and calls ``reporter`` as follows:

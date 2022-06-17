@@ -180,9 +180,21 @@
 <code class="docutils literal notranslate"><span class="pre">amt_name</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_name</span></code> (optional), <code class="docutils literal notranslate"><span class="pre">dcl_dcsn_names</span></code> (optional), 
 <code class="docutils literal notranslate"><span class="pre">extra</span></code> (optional), and other columns required by computation in <code class="docutils literal notranslate"><span class="pre">rules</span></code></p></li>
 <li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
-<li><p><strong>metric_names</strong> (<em>list</em>) – list of metric names to compute; for non built-in metrics, need to first
+<li><p><strong>metric_names</strong> (<em>list</em>) – <p>list of metric names to compute. Built-in metrics include:</p>
+<ul>
+<li><p>’n’: <a class="reference internal" href="metrics.html#report.metrics.N" title="report.metrics.N"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.N</span></code></a>,</p></li>
+<li><p>’gmv’: <a class="reference internal" href="metrics.html#report.metrics.GMV" title="report.metrics.GMV"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.GMV</span></code></a>,</p></li>
+<li><p>’ntl’: <a class="reference internal" href="metrics.html#report.metrics.NTL" title="report.metrics.NTL"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.NTL</span></code></a>,</p></li>
+<li><p>’dcnt’: <a class="reference internal" href="metrics.html#report.metrics.DCNT" title="report.metrics.DCNT"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.DCNT</span></code></a>,</p></li>
+<li><p>’pxdy’: <a class="reference internal" href="metrics.html#report.metrics.PXDY" title="report.metrics.PXDY"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.PXDY</span></code></a>,</p></li>
+<li><p>’p2d0’: <a class="reference internal" href="metrics.html#report.metrics.P2D0" title="report.metrics.P2D0"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.P2D0</span></code></a>,</p></li>
+<li><p>’p2d14’: <a class="reference internal" href="metrics.html#report.metrics.P2D14" title="report.metrics.P2D14"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.P2D14</span></code></a>,</p></li>
+<li><p>’cb’: <a class="reference internal" href="metrics.html#report.metrics.CB" title="report.metrics.CB"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.CB</span></code></a></p></li>
+</ul>
+<p>for non built-in metrics, need to first
 register by calling <a class="reference internal" href="#report.rule_reporter.RuleReporter.register_metric" title="report.rule_reporter.RuleReporter.register_metric"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.rule_reporter.RuleReporter.register_metric()</span></code></a>; 
-<code class="docutils literal notranslate"><span class="pre">n</span></code> and <code class="docutils literal notranslate"><span class="pre">gmv</span></code> are by default computed</p></li>
+<code class="docutils literal notranslate"><span class="pre">n</span></code> and <code class="docutils literal notranslate"><span class="pre">gmv</span></code> are by default computed</p>
+</p></li>
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column, defaults to None, where weights of orders 
 are treated as <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
 <li><p><strong>dcl_dcsn_names</strong> (<em>list</em>) – list of columns indicating decline decisions for each rule, 

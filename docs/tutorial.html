@@ -116,7 +116,8 @@ required to compute metrics. For instance, if a user needs to compute NTL metric
 column of NTL.</p>
 <p>Suppose the prepared table contains order amount column named <code class="docutils literal notranslate"><span class="pre">gmv</span></code>, sample weight column named <code class="docutils literal notranslate"><span class="pre">weight</span></code>,
 NTL column named <code class="docutils literal notranslate"><span class="pre">loss2</span></code>, and decline decision columns for two rules named
-<code class="docutils literal notranslate"><span class="pre">eu_fraud_online_whitepages_general_reject</span></code> and <code class="docutils literal notranslate"><span class="pre">other_reject</span></code>. Then, to use <code class="xref py py-class docutils literal notranslate"><span class="pre">RuleReporter</span></code> to evalute
+<code class="docutils literal notranslate"><span class="pre">eu_fraud_online_whitepages_general_reject</span></code> and <code class="docutils literal notranslate"><span class="pre">other_reject</span></code>. Then, to use
+<a class="reference internal" href="rule_reporter.html#report.rule_reporter.RuleReporter" title="report.rule_reporter.RuleReporter"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.rule_reporter.RuleReporter</span></code></a> to evalute
 the NTL accuracy and NTL coverage of these two rules, one can simply follow the code snippet below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reporter</span> <span class="o">=</span> <span class="n">RuleReporter</span><span class="p">()</span>
 
@@ -218,7 +219,7 @@ computation is the same as NTL but with different definition of loss, one can si
 <span class="n">reporter</span><span class="o">.</span><span class="n">register_metric</span><span class="p">(</span><span class="s1">&#39;new_loss&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">NTL</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This tells <code class="xref py py-class docutils literal notranslate"><span class="pre">reporter.RuleReporter</span></code> that there is a new metric called <code class="docutils literal notranslate"><span class="pre">new_loss</span></code>.</p>
+<p>This tells <a class="reference internal" href="rule_reporter.html#report.rule_reporter.RuleReporter" title="report.rule_reporter.RuleReporter"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.rule_reporter.RuleReporter</span></code></a> that there is a new metric called <code class="docutils literal notranslate"><span class="pre">new_loss</span></code>.</p>
 <p>To evaluate rules with the new metric, one needs to tell which column in the input table
 indicates <code class="docutils literal notranslate"><span class="pre">new_loss</span></code> (support that’s <code class="docutils literal notranslate"><span class="pre">new_ntl</span></code>), and calls <code class="docutils literal notranslate"><span class="pre">reporter</span></code> as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra</span> <span class="o">=</span> <span class="p">[</span>
