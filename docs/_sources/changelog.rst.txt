@@ -1,0 +1,20 @@
+CHANGELOG
+###########
+
+This file is used to list changes made in each version.
+
+v0.1.0
+********
+
+New Feature
+==============
+
+- Allow arbitrary user-defined metrics
+- Support by-group analysis
+
+Improvement
+==============
+
+- Refactor to make the tool more generalized
+- Add common built-in metrics
+- Allow computing diff and impact even if params is ``None`` whenever benchmark is provided

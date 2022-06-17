@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report - A Tool for Strategy Performance Evaluation and report &mdash; Report 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Rule Reporter" href="rule_reporter.html" />
+    <link rel="prev" title="Welcome to Report’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Report
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Report - A Tool for Strategy Performance Evaluation and report</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#communication">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#releases-and-contributing">Releases and Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-team">The Team</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rule_reporter.html">Rule Reporter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">CHANGELOG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v0-1-0">v0.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#new-feature">New Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#improvement">Improvement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Report</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Report - A Tool for Strategy Performance Evaluation and report</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/include_readme.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="report-a-tool-for-strategy-performance-evaluation-and-report">
+<h1>Report - A Tool for Strategy Performance Evaluation and report<a class="headerlink" href="#report-a-tool-for-strategy-performance-evaluation-and-report" title="Permalink to this headline"></a></h1>
+<p>Report is a evaluation tool that provides the following features:</p>
+<ul class="simple">
+<li><p>Provides common off-the-shelf evaluation metrics including GMV impact, NTL accuracy and coverage, etc.</p></li>
+<li><p>Supports both rules with fixed decision as well as parameterized rules</p></li>
+<li><p>Evaluates hundreds of rules on order-level data efficiently</p></li>
+<li><p>Easy to add new metrics</p></li>
+</ul>
+<p>This README aims to provide a general introduction to Report.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<p>Follow the steps below to install Report.</p>
+<ol class="arabic">
+<li><p>It is recommended to create a virtual environment using <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> so that problems of dependencies and versions could be better addressed.</p></li>
+<li><p>Clone the repository from the remote</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/sparkle-apt/report.git</span>
+</pre></div>
+</div>
+</li>
+<li><p>Change to the Report directory</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd report</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install dependencies required by Report if they do not exist locally</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install -r requirements.txt</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install Report</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python setup.py install --use</span>
+</pre></div>
+</div>
+</li>
+<li><p>Testing</p>
+<p>Try importing Report package in your local Python environment:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">report</span>
+</pre></div>
+</div>
+<p>If you see the following error appear,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;report&#39;</span>
+</pre></div>
+</div>
+<p>it is likely that the installation is not correct.</p>
+<p>Otherwise, congratulations! You have successfully installed and configured Report.</p>
+</li>
+</ol>
+<p>The installation duration depends on network condition, computer configuration, as well as whether dependencies are fulfilled or not. If the dependencies have been already fulfilled, the installation should take only several minutes.</p>
+<p>Voilà!</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h2>
+<p>There are several notebooks in <cite>examples</cite>. These are good pointers to start with.</p>
+</div>
+<div class="section" id="communication">
+<h2>Communication<a class="headerlink" href="#communication" title="Permalink to this headline"></a></h2>
+<p>Report bugs, contribute new features, discuss implementations, etc. on Github.</p>
+</div>
+<div class="section" id="releases-and-contributing">
+<h2>Releases and Contributing<a class="headerlink" href="#releases-and-contributing" title="Permalink to this headline"></a></h2>
+<p>We welcome all contributions. If you are planning to contribute back bug-fixes, or new features, utility functions or extensions to the core, please submit to the Git page.</p>
+</div>
+<div class="section" id="the-team">
+<h2>The Team<a class="headerlink" href="#the-team" title="Permalink to this headline"></a></h2>
+<p>Report is currently maintained by Junlin (<a class="reference external" href="mailto:jyao&#37;&#52;&#48;squareup&#46;com">jyao<span>&#64;</span>squareup<span>&#46;</span>com</a>) and Chloe (<a class="reference external" href="mailto:cqing&#37;&#52;&#48;squareup&#46;com">cqing<span>&#64;</span>squareup<span>&#46;</span>com</a>).</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Report’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rule_reporter.html" class="btn btn-neutral float-right" title="Rule Reporter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

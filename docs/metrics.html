@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metrics &mdash; Report 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CHANGELOG" href="changelog.html" />
+    <link rel="prev" title="Rule Reporter" href="rule_reporter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Report
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="include_readme.html">Report - A Tool for Strategy Performance Evaluation and report</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="include_readme.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="include_readme.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="include_readme.html#communication">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="include_readme.html#releases-and-contributing">Releases and Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="include_readme.html#the-team">The Team</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="rule_reporter.html">Rule Reporter</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Metrics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">CHANGELOG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v0-1-0">v0.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#new-feature">New Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#improvement">Improvement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Report</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Metrics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/metrics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-report.metrics">
+<span id="metrics"></span><h1>Metrics<a class="headerlink" href="#module-report.metrics" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">BaseMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acc_denom_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov_denom_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imp_denom_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for metrics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – dataframe based on which metrics are computed</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em>) – name of rule decision column whose value is 1 if rejected and 0 otherwise;
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, nothing is declined</p></li>
+<li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
+<li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
+compute counts</p></li>
+<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.df">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#report.metrics.BaseMetric.df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.rule_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.rule_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.amt_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amt_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.amt_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.weight_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weight_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.weight_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.base_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.base_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.acc_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.cov_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.imp_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.eps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eps</span></span><a class="headerlink" href="#report.metrics.BaseMetric.eps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.total">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#report.metrics.BaseMetric.total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.decline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decline</span></span><a class="headerlink" href="#report.metrics.BaseMetric.decline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.BaseMetric.accuracy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.BaseMetric.coverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_total">
+<span class="sig-name descname"><span class="pre">compute_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_total" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_decline">
+<span class="sig-name descname"><span class="pre">compute_decline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_decline" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_accuracy">
+<span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_coverage">
+<span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_coverage" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_base">
+<span class="sig-name descname"><span class="pre">compute_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_base" title="Permalink to this definition"></a></dt>
+<dd><p>Compute basic indicators including total, decline, etc. that do not need comparison</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_diff">
+<span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_diff" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_impact">
+<span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_impact" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.compute_lift">
+<span class="sig-name descname"><span class="pre">compute_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_lift" title="Permalink to this definition"></a></dt>
+<dd><p>Compare other metric and compute lift</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – other metric object to compare with</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="report.metrics.N">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">N</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'n'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.BaseMetric</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – dataframe based on which metrics are computed</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em>) – name of rule decision column whose value is 1 if rejected and 0 otherwise;
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, nothing is declined</p></li>
+<li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
+<li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
+compute counts</p></li>
+<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.N.compute_impact">
+<span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_impact" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(total</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.N.compute_diff" title="report.metrics.N.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.N.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">total</span></code> is computed by <a class="reference internal" href="#report.metrics.N.compute_total" title="report.metrics.N.compute_total"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.N.compute_total()</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.acc_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.N.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.N.accuracy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.amt_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amt_name</span></span><a class="headerlink" href="#report.metrics.N.amt_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.base_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_name</span></span><a class="headerlink" href="#report.metrics.N.base_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.N.compute_accuracy">
+<span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.N.compute_base">
+<span class="sig-name descname"><span class="pre">compute_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_base" title="Permalink to this definition"></a></dt>
+<dd><p>Compute basic indicators including total, decline, etc. that do not need comparison</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.N.compute_coverage">
+<span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_coverage" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.N.compute_decline">
+<span class="sig-name descname"><span class="pre">compute_decline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_decline" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.N.compute_diff">
+<span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_diff" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.N.compute_lift">
+<span class="sig-name descname"><span class="pre">compute_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_lift" title="Permalink to this definition"></a></dt>
+<dd><p>Compare other metric and compute lift</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – other metric object to compare with</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.N.compute_total">
+<span class="sig-name descname"><span class="pre">compute_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_total" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.cov_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.N.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.N.coverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.decline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decline</span></span><a class="headerlink" href="#report.metrics.N.decline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.df">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#report.metrics.N.df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.eps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eps</span></span><a class="headerlink" href="#report.metrics.N.eps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.imp_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.N.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#report.metrics.N.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.rule_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_name</span></span><a class="headerlink" href="#report.metrics.N.rule_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.total">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#report.metrics.N.total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.N.weight_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weight_name</span></span><a class="headerlink" href="#report.metrics.N.weight_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="report.metrics.GMV">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">GMV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gmv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.BaseMetric</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – dataframe based on which metrics are computed</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em>) – name of rule decision column whose value is 1 if rejected and 0 otherwise;
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, nothing is declined</p></li>
+<li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
+<li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
+compute counts</p></li>
+<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.acc_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.GMV.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.GMV.accuracy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.amt_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amt_name</span></span><a class="headerlink" href="#report.metrics.GMV.amt_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.base_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_name</span></span><a class="headerlink" href="#report.metrics.GMV.base_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.GMV.compute_accuracy">
+<span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.GMV.compute_base">
+<span class="sig-name descname"><span class="pre">compute_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_base" title="Permalink to this definition"></a></dt>
+<dd><p>Compute basic indicators including total, decline, etc. that do not need comparison</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.GMV.compute_coverage">
+<span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_coverage" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.GMV.compute_decline">
+<span class="sig-name descname"><span class="pre">compute_decline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_decline" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.GMV.compute_diff">
+<span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_diff" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.GMV.compute_impact">
+<span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_impact" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.GMV.compute_lift">
+<span class="sig-name descname"><span class="pre">compute_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_lift" title="Permalink to this definition"></a></dt>
+<dd><p>Compare other metric and compute lift</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – other metric object to compare with</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.GMV.compute_total">
+<span class="sig-name descname"><span class="pre">compute_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_total" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.cov_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.GMV.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.GMV.coverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.decline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decline</span></span><a class="headerlink" href="#report.metrics.GMV.decline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.df">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#report.metrics.GMV.df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.eps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eps</span></span><a class="headerlink" href="#report.metrics.GMV.eps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.imp_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.GMV.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#report.metrics.GMV.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.rule_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_name</span></span><a class="headerlink" href="#report.metrics.GMV.rule_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.total">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#report.metrics.GMV.total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.GMV.weight_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weight_name</span></span><a class="headerlink" href="#report.metrics.GMV.weight_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="report.metrics.NTL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">NTL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ntl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.BaseMetric</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – dataframe based on which metrics are computed</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em>) – name of rule decision column whose value is 1 if rejected and 0 otherwise;
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, nothing is declined</p></li>
+<li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
+<li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
+compute counts</p></li>
+<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.acc_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.NTL.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.NTL.accuracy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.amt_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amt_name</span></span><a class="headerlink" href="#report.metrics.NTL.amt_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.base_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_name</span></span><a class="headerlink" href="#report.metrics.NTL.base_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.NTL.compute_accuracy">
+<span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.NTL.compute_base">
+<span class="sig-name descname"><span class="pre">compute_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_base" title="Permalink to this definition"></a></dt>
+<dd><p>Compute basic indicators including total, decline, etc. that do not need comparison</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.NTL.compute_coverage">
+<span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_coverage" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.NTL.compute_decline">
+<span class="sig-name descname"><span class="pre">compute_decline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_decline" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.NTL.compute_diff">
+<span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_diff" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.NTL.compute_impact">
+<span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_impact" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.NTL.compute_lift">
+<span class="sig-name descname"><span class="pre">compute_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_lift" title="Permalink to this definition"></a></dt>
+<dd><p>Compare other metric and compute lift</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – other metric object to compare with</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.NTL.compute_total">
+<span class="sig-name descname"><span class="pre">compute_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_total" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.cov_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.NTL.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.NTL.coverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.decline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decline</span></span><a class="headerlink" href="#report.metrics.NTL.decline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.df">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#report.metrics.NTL.df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.eps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eps</span></span><a class="headerlink" href="#report.metrics.NTL.eps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.imp_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.NTL.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#report.metrics.NTL.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.rule_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_name</span></span><a class="headerlink" href="#report.metrics.NTL.rule_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.total">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#report.metrics.NTL.total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.NTL.weight_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weight_name</span></span><a class="headerlink" href="#report.metrics.NTL.weight_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="report.metrics.DCNT">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">DCNT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dcnt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.BaseMetric</span></code></a></p>
+<p>Distinct count</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – dataframe based on which metrics are computed</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em>) – name of rule decision column whose value is 1 if rejected and 0 otherwise;
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, nothing is declined</p></li>
+<li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
+<li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
+compute counts</p></li>
+<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.DCNT.compute_total">
+<span class="sig-name descname"><span class="pre">compute_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_total" title="Permalink to this definition"></a></dt>
+<dd><p>Total unique number of <code class="docutils literal notranslate"><span class="pre">base_name</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.DCNT.compute_decline">
+<span class="sig-name descname"><span class="pre">compute_decline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_decline" title="Permalink to this definition"></a></dt>
+<dd><p>Total unique number of <code class="docutils literal notranslate"><span class="pre">base_name</span></code> that is declined</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.DCNT.compute_impact">
+<span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_impact" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">total</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.DCNT.compute_diff" title="report.metrics.DCNT.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.DCNT.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">total</span></code> is computed by <a class="reference internal" href="#report.metrics.DCNT.compute_total" title="report.metrics.DCNT.compute_total"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.DCNT.compute_total()</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.acc_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.DCNT.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.DCNT.accuracy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.amt_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amt_name</span></span><a class="headerlink" href="#report.metrics.DCNT.amt_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.base_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_name</span></span><a class="headerlink" href="#report.metrics.DCNT.base_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.DCNT.compute_accuracy">
+<span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.DCNT.compute_base">
+<span class="sig-name descname"><span class="pre">compute_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_base" title="Permalink to this definition"></a></dt>
+<dd><p>Compute basic indicators including total, decline, etc. that do not need comparison</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.DCNT.compute_coverage">
+<span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_coverage" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.DCNT.compute_diff">
+<span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_diff" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.DCNT.compute_lift">
+<span class="sig-name descname"><span class="pre">compute_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_lift" title="Permalink to this definition"></a></dt>
+<dd><p>Compare other metric and compute lift</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – other metric object to compare with</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.cov_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.DCNT.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.DCNT.coverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.decline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decline</span></span><a class="headerlink" href="#report.metrics.DCNT.decline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.df">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#report.metrics.DCNT.df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.eps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eps</span></span><a class="headerlink" href="#report.metrics.DCNT.eps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.imp_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.DCNT.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#report.metrics.DCNT.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.rule_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_name</span></span><a class="headerlink" href="#report.metrics.DCNT.rule_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.total">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#report.metrics.DCNT.total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.DCNT.weight_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weight_name</span></span><a class="headerlink" href="#report.metrics.DCNT.weight_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="report.metrics.PXDY">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">PXDY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pxdy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">px_due_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.BaseMetric</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – dataframe based on which metrics are computed</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em>) – name of rule decision column whose value is 1 if rejected and 0 otherwise;
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, nothing is declined</p></li>
+<li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
+<li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
+compute counts</p></li>
+<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.px_due_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">px_due_name</span></span><a class="headerlink" href="#report.metrics.PXDY.px_due_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.acc_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.PXDY.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.PXDY.accuracy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.amt_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amt_name</span></span><a class="headerlink" href="#report.metrics.PXDY.amt_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.base_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_name</span></span><a class="headerlink" href="#report.metrics.PXDY.base_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.PXDY.compute_accuracy">
+<span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.PXDY.compute_base">
+<span class="sig-name descname"><span class="pre">compute_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_base" title="Permalink to this definition"></a></dt>
+<dd><p>Compute basic indicators including total, decline, etc. that do not need comparison</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.PXDY.compute_coverage">
+<span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_coverage" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.PXDY.compute_decline">
+<span class="sig-name descname"><span class="pre">compute_decline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_decline" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.PXDY.compute_diff">
+<span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_diff" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.PXDY.compute_impact">
+<span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_impact" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.PXDY.compute_lift">
+<span class="sig-name descname"><span class="pre">compute_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_lift" title="Permalink to this definition"></a></dt>
+<dd><p>Compare other metric and compute lift</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – other metric object to compare with</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.PXDY.compute_total">
+<span class="sig-name descname"><span class="pre">compute_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_total" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.cov_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.PXDY.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.PXDY.coverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.decline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decline</span></span><a class="headerlink" href="#report.metrics.PXDY.decline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.df">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#report.metrics.PXDY.df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.eps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eps</span></span><a class="headerlink" href="#report.metrics.PXDY.eps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.imp_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.PXDY.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#report.metrics.PXDY.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.rule_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_name</span></span><a class="headerlink" href="#report.metrics.PXDY.rule_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.total">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#report.metrics.PXDY.total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.PXDY.weight_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weight_name</span></span><a class="headerlink" href="#report.metrics.PXDY.weight_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="report.metrics.P2D0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">P2D0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'p2d0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">px_due_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#report.metrics.PXDY" title="report.metrics.PXDY"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.PXDY</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – dataframe based on which metrics are computed</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em>) – name of rule decision column whose value is 1 if rejected and 0 otherwise;
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, nothing is declined</p></li>
+<li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
+<li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
+compute counts</p></li>
+<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.acc_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D0.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.P2D0.accuracy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.amt_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amt_name</span></span><a class="headerlink" href="#report.metrics.P2D0.amt_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.base_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_name</span></span><a class="headerlink" href="#report.metrics.P2D0.base_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D0.compute_accuracy">
+<span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D0.compute_base">
+<span class="sig-name descname"><span class="pre">compute_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_base" title="Permalink to this definition"></a></dt>
+<dd><p>Compute basic indicators including total, decline, etc. that do not need comparison</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D0.compute_coverage">
+<span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_coverage" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D0.compute_decline">
+<span class="sig-name descname"><span class="pre">compute_decline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_decline" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D0.compute_diff">
+<span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_diff" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D0.compute_impact">
+<span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_impact" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D0.compute_lift">
+<span class="sig-name descname"><span class="pre">compute_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_lift" title="Permalink to this definition"></a></dt>
+<dd><p>Compare other metric and compute lift</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – other metric object to compare with</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D0.compute_total">
+<span class="sig-name descname"><span class="pre">compute_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_total" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.cov_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D0.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.P2D0.coverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.decline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decline</span></span><a class="headerlink" href="#report.metrics.P2D0.decline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.df">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#report.metrics.P2D0.df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.eps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eps</span></span><a class="headerlink" href="#report.metrics.P2D0.eps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.imp_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D0.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#report.metrics.P2D0.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.px_due_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">px_due_name</span></span><a class="headerlink" href="#report.metrics.P2D0.px_due_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.rule_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_name</span></span><a class="headerlink" href="#report.metrics.P2D0.rule_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.total">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#report.metrics.P2D0.total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D0.weight_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weight_name</span></span><a class="headerlink" href="#report.metrics.P2D0.weight_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="report.metrics.P2D14">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">P2D14</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'p2d14'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">px_due_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#report.metrics.PXDY" title="report.metrics.PXDY"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.PXDY</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – dataframe based on which metrics are computed</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em>) – name of rule decision column whose value is 1 if rejected and 0 otherwise;
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, nothing is declined</p></li>
+<li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
+<li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
+compute counts</p></li>
+<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.acc_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D14.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.P2D14.accuracy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.amt_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amt_name</span></span><a class="headerlink" href="#report.metrics.P2D14.amt_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.base_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_name</span></span><a class="headerlink" href="#report.metrics.P2D14.base_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D14.compute_accuracy">
+<span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D14.compute_base">
+<span class="sig-name descname"><span class="pre">compute_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_base" title="Permalink to this definition"></a></dt>
+<dd><p>Compute basic indicators including total, decline, etc. that do not need comparison</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D14.compute_coverage">
+<span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_coverage" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D14.compute_decline">
+<span class="sig-name descname"><span class="pre">compute_decline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_decline" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D14.compute_diff">
+<span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_diff" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D14.compute_impact">
+<span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_impact" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D14.compute_lift">
+<span class="sig-name descname"><span class="pre">compute_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_lift" title="Permalink to this definition"></a></dt>
+<dd><p>Compare other metric and compute lift</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – other metric object to compare with</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.P2D14.compute_total">
+<span class="sig-name descname"><span class="pre">compute_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_total" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.cov_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D14.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.P2D14.coverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.decline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decline</span></span><a class="headerlink" href="#report.metrics.P2D14.decline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.df">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#report.metrics.P2D14.df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.eps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eps</span></span><a class="headerlink" href="#report.metrics.P2D14.eps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.imp_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D14.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#report.metrics.P2D14.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.px_due_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">px_due_name</span></span><a class="headerlink" href="#report.metrics.P2D14.px_due_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.rule_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_name</span></span><a class="headerlink" href="#report.metrics.P2D14.rule_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.total">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#report.metrics.P2D14.total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.P2D14.weight_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weight_name</span></span><a class="headerlink" href="#report.metrics.P2D14.weight_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="report.metrics.CB">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">CB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">report.metrics.BaseMetric</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – dataframe based on which metrics are computed</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em>) – name of rule decision column whose value is 1 if rejected and 0 otherwise;
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, nothing is declined</p></li>
+<li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
+<li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
+compute counts</p></li>
+<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.acc_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.CB.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.CB.accuracy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.amt_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amt_name</span></span><a class="headerlink" href="#report.metrics.CB.amt_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.base_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_name</span></span><a class="headerlink" href="#report.metrics.CB.base_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.CB.compute_accuracy">
+<span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.CB.compute_base">
+<span class="sig-name descname"><span class="pre">compute_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_base" title="Permalink to this definition"></a></dt>
+<dd><p>Compute basic indicators including total, decline, etc. that do not need comparison</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.CB.compute_coverage">
+<span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_coverage" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.CB.compute_decline">
+<span class="sig-name descname"><span class="pre">compute_decline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_decline" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.CB.compute_diff">
+<span class="sig-name descname"><span class="pre">compute_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_diff" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">decline</span> <span class="pre">-</span> <span class="pre">other_decline</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">decline</span></code> and <code class="docutils literal notranslate"><span class="pre">other_decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.CB.compute_impact">
+<span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_impact" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
+<code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.CB.compute_lift">
+<span class="sig-name descname"><span class="pre">compute_lift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_lift" title="Permalink to this definition"></a></dt>
+<dd><p>Compare other metric and compute lift</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – other metric object to compare with</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="report.metrics.CB.compute_total">
+<span class="sig-name descname"><span class="pre">compute_total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_total" title="Permalink to this definition"></a></dt>
+<dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">sum(base_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.cov_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.CB.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.CB.coverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.decline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decline</span></span><a class="headerlink" href="#report.metrics.CB.decline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.df">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#report.metrics.CB.df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.eps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eps</span></span><a class="headerlink" href="#report.metrics.CB.eps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.imp_denom_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.CB.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#report.metrics.CB.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.rule_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rule_name</span></span><a class="headerlink" href="#report.metrics.CB.rule_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.total">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#report.metrics.CB.total" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="report.metrics.CB.weight_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weight_name</span></span><a class="headerlink" href="#report.metrics.CB.weight_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rule_reporter.html" class="btn btn-neutral float-left" title="Rule Reporter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="CHANGELOG" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+Rule Reporter
+==================================
+
+.. automodule:: report.rule_reporter
+   :members:
+   :undoc-members:
+   :show-inheritance:
