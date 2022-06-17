@@ -125,11 +125,12 @@ the NTL accuracy and NTL coverage of these two rules, one can simply follow the 
 <span class="n">weight_name</span> <span class="o">=</span> <span class="s1">&#39;weight&#39;</span>
 <span class="n">benchmark_name</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">dcl_dcsn_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;eu_fraud_online_whitepages_general_reject&#39;</span><span class="p">,</span> <span class="s1">&#39;other_reject&#39;</span><span class="p">]</span>
-<span class="n">col_names</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;ntl&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="n">extra</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;metric_name&#39;</span><span class="p">:</span> <span class="s1">&#39;ntl&#39;</span><span class="p">,</span>
         <span class="s1">&#39;base_name&#39;</span><span class="p">:</span> <span class="s1">&#39;loss2&#39;</span> <span class="c1"># need to tell RuleReporter which column is ntl</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">]</span>
 
 <span class="n">reporter</span> <span class="o">=</span> <span class="n">RuleReporter</span><span class="p">()</span>
 
@@ -137,7 +138,7 @@ the NTL accuracy and NTL coverage of these two rules, one can simply follow the 
     <span class="n">raw</span><span class="p">,</span> <span class="n">amt_name</span><span class="p">,</span> <span class="n">metric_names</span><span class="o">=</span><span class="n">metric_names</span><span class="p">,</span> <span class="n">weight_name</span><span class="o">=</span><span class="n">weight_name</span><span class="p">,</span>
     <span class="n">dcl_dcsn_names</span><span class="o">=</span><span class="n">dcl_dcsn_names</span><span class="p">,</span>
     <span class="n">benchmark_name</span><span class="o">=</span><span class="n">benchmark_name</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">col_names</span><span class="o">=</span><span class="n">col_names</span>
+    <span class="n">extra</span><span class="o">=</span><span class="n">extra</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -166,11 +167,12 @@ benchmark rule.</p>
 <span class="n">weight_name</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">benchmark_name</span> <span class="o">=</span> <span class="s1">&#39;eu_fraud_online_whitepages_general_reject&#39;</span>
 <span class="n">dcl_dcsn_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;eu_fraud_online_whitepages_general_reject&#39;</span><span class="p">]</span>
-<span class="n">col_names</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;ntl&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;base_name&#39;</span><span class="p">:</span> <span class="s1">&#39;loss2&#39;</span>
+<span class="n">extra</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;metric_name&#39;</span><span class="p">:</span> <span class="s1">&#39;ntl&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;base_name&#39;</span><span class="p">:</span> <span class="s1">&#39;loss2&#39;</span> <span class="c1"># need to tell RuleReporter which column is ntl</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">]</span>
 <span class="n">rules</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;hrm_rule&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="n">hrm_rule</span><span class="p">,</span>
@@ -195,7 +197,7 @@ benchmark rule.</p>
     <span class="n">raw</span><span class="p">,</span> <span class="n">amt_name</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">rule_params</span><span class="p">,</span> <span class="n">metric_names</span><span class="o">=</span><span class="n">metric_names</span><span class="p">,</span>
     <span class="n">weight_name</span><span class="o">=</span><span class="n">weight_name</span><span class="p">,</span> <span class="n">dcl_dcsn_names</span><span class="o">=</span><span class="n">dcl_dcsn_names</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="n">rules</span><span class="p">,</span>
     <span class="n">benchmark_name</span><span class="o">=</span><span class="n">benchmark_name</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">col_names</span><span class="o">=</span><span class="n">col_names</span>
+    <span class="n">extra</span><span class="o">=</span><span class="n">extra</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -219,17 +221,18 @@ computation is the same as NTL but with different definition of loss, one can si
 <p>This tells <code class="xref py py-class docutils literal notranslate"><span class="pre">reporter.RuleReporter</span></code> that there is a new metric called <code class="docutils literal notranslate"><span class="pre">new_loss</span></code>.</p>
 <p>To evaluate rules with the new metric, one needs to tell which column in the input table
 indicates <code class="docutils literal notranslate"><span class="pre">new_loss</span></code> (support that’s <code class="docutils literal notranslate"><span class="pre">new_ntl</span></code>), and calls <code class="docutils literal notranslate"><span class="pre">reporter</span></code> as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col_names</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;new_loss&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;base_name&#39;</span><span class="p">:</span> <span class="s1">&#39;new_ntl&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;metric_name&#39;</span><span class="p">:</span> <span class="s1">&#39;new_loss&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;base_name&#39;</span><span class="p">:</span> <span class="s1">&#39;new_ntl&#39;</span> <span class="c1"># need to tell RuleReporter which column</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">]</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">reporter</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
     <span class="n">raw</span><span class="p">,</span> <span class="n">amt_name</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">rule_params</span><span class="p">,</span> <span class="n">metric_names</span><span class="o">=</span><span class="n">metric_names</span><span class="p">,</span>
     <span class="n">weight_name</span><span class="o">=</span><span class="n">weight_name</span><span class="p">,</span> <span class="n">dcl_dcsn_names</span><span class="o">=</span><span class="n">dcl_dcsn_names</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="n">rules</span><span class="p">,</span>
     <span class="n">benchmark_name</span><span class="o">=</span><span class="n">benchmark_name</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">col_names</span><span class="o">=</span><span class="n">col_names</span>
+    <span class="n">extra</span><span class="o">=</span><span class="n">extra</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -239,24 +242,25 @@ to specify which columns are used for denominators.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reporter</span> <span class="o">=</span> <span class="n">RuleReporter</span><span class="p">()</span>
 <span class="n">reporter</span><span class="o">.</span><span class="n">register_metric</span><span class="p">(</span><span class="s1">&#39;new_loss&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">NTL</span><span class="p">)</span>
 
-<span class="n">col_names</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;new_loss&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="n">extra</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;metric_name&#39;</span><span class="p">:</span> <span class="s1">&#39;new_loss&#39;</span><span class="p">,</span>
         <span class="s1">&#39;base_name&#39;</span><span class="p">:</span> <span class="s1">&#39;new_ntl&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;acc_denom_name&#39;</span><span class="p">:</span> <span class="s1">&#39;gmv&#39;</span><span class="p">,</span> <span class="c1"># if not provided, accuracy would not be computed</span>
-        <span class="s1">&#39;cov_denom_name&#39;</span><span class="p">:</span> <span class="s1">&#39;loss&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;imp_denom_name&#39;</span><span class="p">:</span> <span class="s1">&#39;gmv&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;accuracy_denominator_name&#39;</span><span class="p">:</span> <span class="s1">&#39;gmv&#39;</span><span class="p">,</span> <span class="c1"># if not provided, accuracy would not be computed</span>
+        <span class="s1">&#39;coverage_denominator_name&#39;</span><span class="p">:</span> <span class="s1">&#39;loss&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;impact_denominator_name&#39;</span><span class="p">:</span> <span class="s1">&#39;gmv&#39;</span><span class="p">,</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">]</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">reporter</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
     <span class="n">raw</span><span class="p">,</span> <span class="n">amt_name</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">rule_params</span><span class="p">,</span> <span class="n">metric_names</span><span class="o">=</span><span class="n">metric_names</span><span class="p">,</span>
     <span class="n">weight_name</span><span class="o">=</span><span class="n">weight_name</span><span class="p">,</span> <span class="n">dcl_dcsn_names</span><span class="o">=</span><span class="n">dcl_dcsn_names</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="n">rules</span><span class="p">,</span>
     <span class="n">benchmark_name</span><span class="o">=</span><span class="n">benchmark_name</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">col_names</span><span class="o">=</span><span class="n">col_names</span>
+    <span class="n">extra</span><span class="o">=</span><span class="n">extra</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that if some of denominators are not provided, say <code class="docutils literal notranslate"><span class="pre">acc_denom_name</span></code> remains <code class="docutils literal notranslate"><span class="pre">None</span></code>, then accuracy will not be
+<p>Note that if some of denominators are not provided, say <code class="docutils literal notranslate"><span class="pre">accuracy_denominator_name</span></code> remains <code class="docutils literal notranslate"><span class="pre">None</span></code>, then accuracy will not be
 computed for <code class="docutils literal notranslate"><span class="pre">new_loss</span></code>.</p>
 <p>Most use cases should be covered by the above two examples. Sometimes, one may propose a customized metric that cannot
 fit into any of existing metric conventions. In this case, some effort is needed for implementation.</p>
@@ -287,9 +291,9 @@ consumer, or device.</p>
         <span class="n">amt_name</span><span class="o">=</span><span class="n">amt_name</span><span class="p">,</span>
         <span class="n">weight_name</span><span class="o">=</span><span class="n">weight_name</span><span class="p">,</span>
         <span class="n">base_name</span><span class="o">=</span><span class="n">base_name</span><span class="p">,</span>
-        <span class="n">acc_denom_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">cov_denom_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">imp_denom_name</span><span class="o">=</span><span class="n">base_name</span><span class="p">,</span>
+        <span class="n">accuracy_denominator_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">coverage_denominator_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">impact_denominator_name</span><span class="o">=</span><span class="n">base_name</span><span class="p">,</span>
         <span class="n">total</span><span class="o">=</span><span class="n">total</span><span class="p">,</span>
         <span class="n">eps</span><span class="o">=</span><span class="n">eps</span>
     <span class="p">)</span>
@@ -351,7 +355,7 @@ the overridden value.</p>
     <span class="n">raw</span><span class="p">,</span> <span class="n">amt_name</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">rule_params</span><span class="p">,</span> <span class="n">metric_names</span><span class="o">=</span><span class="n">metric_names</span><span class="p">,</span>
     <span class="n">weight_name</span><span class="o">=</span><span class="n">weight_name</span><span class="p">,</span> <span class="n">dcl_dcsn_names</span><span class="o">=</span><span class="n">dcl_dcsn_names</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="n">rules</span><span class="p">,</span>
     <span class="n">benchmark_name</span><span class="o">=</span><span class="n">benchmark_name</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">col_names</span><span class="o">=</span><span class="n">col_names</span><span class="p">,</span> <span class="n">group_name</span><span class="o">=</span><span class="s1">&#39;cust_tenure&#39;</span>
+    <span class="n">extra</span><span class="o">=</span><span class="n">extra</span><span class="p">,</span> <span class="n">group_name</span><span class="o">=</span><span class="s1">&#39;cust_tenure&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>

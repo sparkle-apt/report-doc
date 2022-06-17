@@ -135,8 +135,8 @@
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.rule_reporter.RuleReporter.col_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">col_names</span></span><a class="headerlink" href="#report.rule_reporter.RuleReporter.col_names" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.rule_reporter.RuleReporter.extra">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">extra</span></span><a class="headerlink" href="#report.rule_reporter.RuleReporter.extra" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -172,13 +172,13 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="report.rule_reporter.RuleReporter.evaluate">
-<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[{}]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dcl_dcsn_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">benchmark_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.rule_reporter.RuleReporter.evaluate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[{}]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dcl_dcsn_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">benchmark_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.rule_reporter.RuleReporter.evaluate" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>raw</strong> (<em>pandas.DataFrame</em>) – order level dataframe containing columns specified by 
 <code class="docutils literal notranslate"><span class="pre">amt_name</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_name</span></code> (optional), <code class="docutils literal notranslate"><span class="pre">dcl_dcsn_names</span></code> (optional), 
-<code class="docutils literal notranslate"><span class="pre">col_names</span></code> (optional), and other columns required by computation in <code class="docutils literal notranslate"><span class="pre">rules</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">extra</span></code> (optional), and other columns required by computation in <code class="docutils literal notranslate"><span class="pre">rules</span></code></p></li>
 <li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
 <li><p><strong>metric_names</strong> (<em>list</em>) – list of metric names to compute; for non built-in metrics, need to first
 register by calling <a class="reference internal" href="#report.rule_reporter.RuleReporter.register_metric" title="report.rule_reporter.RuleReporter.register_metric"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.rule_reporter.RuleReporter.register_metric()</span></code></a>; 
@@ -209,13 +209,14 @@ decline decision (1 for declining and 0 otherwise)</p>
 all other rules compute performance lift</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – small number preventing being divided by zero issue</p></li>
 <li><p><strong>n_jobs</strong> (<em>int</em>) – number of parallel processes</p></li>
-<li><p><strong>col_names</strong> – <p>extra info needed to compute metrics, for instance,
+<li><p><strong>extra</strong> (<em>list</em>) – <p>extra info needed to compute metrics, for instance,
 to compute ntl, need to specify the column name of ntl in dataframe:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s1">&#39;ntl&#39;</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;metric_name&#39;</span><span class="p">:</span> <span class="s1">&#39;ntl&#39;</span><span class="p">,</span>
         <span class="s1">&#39;base_name&#39;</span><span class="p">:</span> <span class="s1">&#39;ntl_col&#39;</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </p></li>

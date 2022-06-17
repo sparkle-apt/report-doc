@@ -107,7 +107,7 @@
 <span id="metrics"></span><h1>Metrics<a class="headerlink" href="#module-report.metrics" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="report.metrics.BaseMetric">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">BaseMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acc_denom_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov_denom_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imp_denom_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">report.metrics.</span></span><span class="sig-name descname"><span class="pre">BaseMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accuracy_denominator_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coverage_denominator_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impact_denominator_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class for metrics</p>
 <dl class="field-list simple">
@@ -121,9 +121,9 @@ if <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
 <li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
 compute counts</p></li>
-<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
-<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
-<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>accuracy_denominator_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>coverage_denominator_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>impact_denominator_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
 <li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
 </ul>
@@ -160,18 +160,18 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.BaseMetric.acc_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.accuracy_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy_denominator_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.accuracy_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.BaseMetric.cov_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.coverage_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage_denominator_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.coverage_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.BaseMetric.imp_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.BaseMetric.impact_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">impact_denominator_name</span></span><a class="headerlink" href="#report.metrics.BaseMetric.impact_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -216,7 +216,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">accuracy_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -224,7 +224,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(coverage_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -245,7 +245,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.BaseMetric.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(impact_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -276,9 +276,9 @@ if <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
 <li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
 compute counts</p></li>
-<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
-<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
-<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>accuracy_denominator_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>coverage_denominator_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>impact_denominator_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
 <li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
 </ul>
@@ -293,13 +293,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.N.acc_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.N.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.N.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.N.accuracy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.N.accuracy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.N.accuracy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.N.accuracy_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy_denominator_name</span></span><a class="headerlink" href="#report.metrics.N.accuracy_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -317,7 +317,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">accuracy_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -331,7 +331,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.N.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(coverage_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -365,13 +365,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.N.cov_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.N.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.N.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.N.coverage" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.N.coverage">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.N.coverage" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.N.coverage_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage_denominator_name</span></span><a class="headerlink" href="#report.metrics.N.coverage_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -390,8 +390,8 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.N.imp_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.N.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.N.impact_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">impact_denominator_name</span></span><a class="headerlink" href="#report.metrics.N.impact_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -431,22 +431,22 @@ if <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
 <li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
 compute counts</p></li>
-<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
-<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
-<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>accuracy_denominator_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>coverage_denominator_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>impact_denominator_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
 <li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.GMV.acc_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.GMV.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.GMV.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.GMV.accuracy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.GMV.accuracy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.GMV.accuracy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.GMV.accuracy_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy_denominator_name</span></span><a class="headerlink" href="#report.metrics.GMV.accuracy_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -464,7 +464,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">accuracy_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -478,7 +478,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(coverage_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -499,7 +499,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.GMV.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(impact_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -520,13 +520,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.GMV.cov_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.GMV.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.GMV.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.GMV.coverage" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.GMV.coverage">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.GMV.coverage" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.GMV.coverage_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage_denominator_name</span></span><a class="headerlink" href="#report.metrics.GMV.coverage_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -545,8 +545,8 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.GMV.imp_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.GMV.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.GMV.impact_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">impact_denominator_name</span></span><a class="headerlink" href="#report.metrics.GMV.impact_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -586,22 +586,22 @@ if <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
 <li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
 compute counts</p></li>
-<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
-<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
-<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>accuracy_denominator_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>coverage_denominator_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>impact_denominator_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
 <li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.NTL.acc_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.NTL.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.NTL.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.NTL.accuracy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.NTL.accuracy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.NTL.accuracy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.NTL.accuracy_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy_denominator_name</span></span><a class="headerlink" href="#report.metrics.NTL.accuracy_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -619,7 +619,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">accuracy_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -633,7 +633,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(coverage_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -654,7 +654,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.NTL.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(impact_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -675,13 +675,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.NTL.cov_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.NTL.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.NTL.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.NTL.coverage" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.NTL.coverage">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.NTL.coverage" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.NTL.coverage_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage_denominator_name</span></span><a class="headerlink" href="#report.metrics.NTL.coverage_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -700,8 +700,8 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.NTL.imp_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.NTL.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.NTL.impact_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">impact_denominator_name</span></span><a class="headerlink" href="#report.metrics.NTL.impact_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -742,9 +742,9 @@ if <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
 <li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
 compute counts</p></li>
-<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
-<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
-<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>accuracy_denominator_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>coverage_denominator_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>impact_denominator_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
 <li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
 </ul>
@@ -771,13 +771,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.DCNT.acc_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.DCNT.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.DCNT.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.DCNT.accuracy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.DCNT.accuracy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.DCNT.accuracy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.DCNT.accuracy_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy_denominator_name</span></span><a class="headerlink" href="#report.metrics.DCNT.accuracy_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -795,7 +795,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">accuracy_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -809,7 +809,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.DCNT.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(coverage_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -831,13 +831,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.DCNT.cov_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.DCNT.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.DCNT.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.DCNT.coverage" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.DCNT.coverage">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.DCNT.coverage" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.DCNT.coverage_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage_denominator_name</span></span><a class="headerlink" href="#report.metrics.DCNT.coverage_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -856,8 +856,8 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.DCNT.imp_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.DCNT.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.DCNT.impact_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">impact_denominator_name</span></span><a class="headerlink" href="#report.metrics.DCNT.impact_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -897,9 +897,9 @@ if <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
 <li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
 compute counts</p></li>
-<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
-<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
-<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>accuracy_denominator_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>coverage_denominator_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>impact_denominator_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
 <li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
 </ul>
@@ -911,13 +911,13 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.PXDY.acc_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.PXDY.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.PXDY.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.PXDY.accuracy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.PXDY.accuracy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.PXDY.accuracy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.PXDY.accuracy_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy_denominator_name</span></span><a class="headerlink" href="#report.metrics.PXDY.accuracy_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -935,7 +935,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">accuracy_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -949,7 +949,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(coverage_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -970,7 +970,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.PXDY.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(impact_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -991,13 +991,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.PXDY.cov_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.PXDY.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.PXDY.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.PXDY.coverage" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.PXDY.coverage">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.PXDY.coverage" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.PXDY.coverage_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage_denominator_name</span></span><a class="headerlink" href="#report.metrics.PXDY.coverage_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1016,8 +1016,8 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.PXDY.imp_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.PXDY.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.PXDY.impact_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">impact_denominator_name</span></span><a class="headerlink" href="#report.metrics.PXDY.impact_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1057,22 +1057,22 @@ if <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
 <li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
 compute counts</p></li>
-<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
-<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
-<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>accuracy_denominator_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>coverage_denominator_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>impact_denominator_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
 <li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D0.acc_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D0.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D0.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.P2D0.accuracy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D0.accuracy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.P2D0.accuracy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D0.accuracy_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy_denominator_name</span></span><a class="headerlink" href="#report.metrics.P2D0.accuracy_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1090,7 +1090,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">accuracy_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -1104,7 +1104,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(coverage_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -1125,7 +1125,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D0.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(impact_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -1146,13 +1146,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D0.cov_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D0.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D0.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.P2D0.coverage" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D0.coverage">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.P2D0.coverage" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D0.coverage_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage_denominator_name</span></span><a class="headerlink" href="#report.metrics.P2D0.coverage_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1171,8 +1171,8 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D0.imp_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D0.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D0.impact_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">impact_denominator_name</span></span><a class="headerlink" href="#report.metrics.P2D0.impact_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1217,22 +1217,22 @@ if <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
 <li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
 compute counts</p></li>
-<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
-<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
-<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>accuracy_denominator_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>coverage_denominator_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>impact_denominator_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
 <li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D14.acc_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D14.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D14.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.P2D14.accuracy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D14.accuracy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.P2D14.accuracy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D14.accuracy_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy_denominator_name</span></span><a class="headerlink" href="#report.metrics.P2D14.accuracy_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1250,7 +1250,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">accuracy_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -1264,7 +1264,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(coverage_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -1285,7 +1285,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.P2D14.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(impact_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -1306,13 +1306,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D14.cov_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D14.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D14.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.P2D14.coverage" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D14.coverage">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.P2D14.coverage" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D14.coverage_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage_denominator_name</span></span><a class="headerlink" href="#report.metrics.P2D14.coverage_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1331,8 +1331,8 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.P2D14.imp_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.P2D14.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.P2D14.impact_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">impact_denominator_name</span></span><a class="headerlink" href="#report.metrics.P2D14.impact_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1377,22 +1377,22 @@ if <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column</p></li>
 <li><p><strong>base_name</strong> (<em>str</em>) – column name of losses, gmv, etc. to compute metrics; if <code class="docutils literal notranslate"><span class="pre">None</span></code>, equivalent to 
 compute counts</p></li>
-<li><p><strong>acc_denom_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
-<li><p><strong>cov_denom_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
-<li><p><strong>imp_denom_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
+<li><p><strong>accuracy_denominator_name</strong> (<em>str</em>) – column name of denominator of accuracy</p></li>
+<li><p><strong>coverage_denominator_name</strong> (<em>str</em>) – column name of denominator of coverage</p></li>
+<li><p><strong>impact_denominator_name</strong> (<em>str</em>) – column name of denominator of impact</p></li>
 <li><p><strong>total</strong> (<em>float</em>) – precomputed total can be passed in</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – epsilon</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.CB.acc_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acc_denom_name</span></span><a class="headerlink" href="#report.metrics.CB.acc_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.CB.accuracy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.CB.accuracy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.CB.accuracy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><a class="headerlink" href="#report.metrics.CB.accuracy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.CB.accuracy_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy_denominator_name</span></span><a class="headerlink" href="#report.metrics.CB.accuracy_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1410,7 +1410,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_accuracy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_accuracy" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(acc_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">acc_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">acc_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(rule_name</span> <span class="pre">*</span> <span class="pre">accuracy_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -1424,7 +1424,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_coverage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_coverage" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">decline</span> <span class="pre">/</span> <span class="pre">(cov_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">decline</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_decline" title="report.metrics.BaseMetric.compute_decline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_decline()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(cov_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">cov_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(coverage_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -1445,7 +1445,7 @@ compute counts</p></li>
 <span class="sig-name descname"><span class="pre">compute_impact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.metrics.CB.compute_impact" title="Permalink to this definition"></a></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">100.</span> <span class="pre">*</span> <span class="pre">diff</span> <span class="pre">/</span> <span class="pre">(imp_denom</span> <span class="pre">+</span> <span class="pre">eps)</span></code>, where 
 <code class="docutils literal notranslate"><span class="pre">diff</span></code> is computed by <a class="reference internal" href="#report.metrics.BaseMetric.compute_diff" title="report.metrics.BaseMetric.compute_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report.metrics.BaseMetric.compute_diff()</span></code></a>, and 
-<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(imp_denom_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">imp_denom</span></code> is computed by <code class="docutils literal notranslate"><span class="pre">sum(impact_denominator_name</span> <span class="pre">*</span> <span class="pre">weight_name)</span></code></p>
 </dd></dl>
 
 <dl class="py method">
@@ -1466,13 +1466,13 @@ compute counts</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.CB.cov_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cov_denom_name</span></span><a class="headerlink" href="#report.metrics.CB.cov_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.CB.coverage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.CB.coverage" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.CB.coverage">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><a class="headerlink" href="#report.metrics.CB.coverage" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.CB.coverage_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage_denominator_name</span></span><a class="headerlink" href="#report.metrics.CB.coverage_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1491,8 +1491,8 @@ compute counts</p></li>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="report.metrics.CB.imp_denom_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imp_denom_name</span></span><a class="headerlink" href="#report.metrics.CB.imp_denom_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="report.metrics.CB.impact_denominator_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">impact_denominator_name</span></span><a class="headerlink" href="#report.metrics.CB.impact_denominator_name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">

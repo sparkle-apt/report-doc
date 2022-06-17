@@ -27,19 +27,20 @@ the NTL accuracy and NTL coverage of these two rules, one can simply follow the 
     weight_name = 'weight'
     benchmark_name = None
     dcl_dcsn_names = ['eu_fraud_online_whitepages_general_reject', 'other_reject']
-    col_names = {
-        'ntl': {
+    extra = [
+        {
+            'metric_name': 'ntl',
             'base_name': 'loss2' # need to tell RuleReporter which column is ntl
         }
-    }
-
+    ]
+    
     reporter = RuleReporter()
 
     res = reporter.evaluate(
         raw, amt_name, metric_names=metric_names, weight_name=weight_name, 
         dcl_dcsn_names=dcl_dcsn_names, 
         benchmark_name=benchmark_name, n_jobs=2, 
-        col_names=col_names
+        extra=extra
     )
 
 One can view the result using ``res.head()`` or directly ``res`` in notebook. The default display may be a bit 
@@ -74,11 +75,12 @@ benchmark rule.
     weight_name = None
     benchmark_name = 'eu_fraud_online_whitepages_general_reject'
     dcl_dcsn_names = ['eu_fraud_online_whitepages_general_reject']
-    col_names = {
-        'ntl': {
-            'base_name': 'loss2'
+    extra = [
+        {
+            'metric_name': 'ntl',
+            'base_name': 'loss2' # need to tell RuleReporter which column is ntl
         }
-    }
+    ]
     rules = {
         'hrm_rule': {
             'rule': hrm_rule,
@@ -103,7 +105,7 @@ benchmark rule.
         raw, amt_name, params=rule_params, metric_names=metric_names, 
         weight_name=weight_name, dcl_dcsn_names=dcl_dcsn_names, rules=rules, 
         benchmark_name=benchmark_name, n_jobs=2, 
-        col_names=col_names
+        extra=extra
     )
         
         
@@ -136,17 +138,19 @@ indicates ``new_loss`` (support that's ``new_ntl``), and calls ``reporter`` as f
 
 .. code-block:: python
 
-    col_names = {
-        'new_loss': {
-            'base_name': 'new_ntl'
+
+    extra = [
+        {
+            'metric_name': 'new_loss',
+            'base_name': 'new_ntl' # need to tell RuleReporter which column
         }
-    }
+    ]
     
     res = reporter.evaluate(
         raw, amt_name, params=rule_params, metric_names=metric_names, 
         weight_name=weight_name, dcl_dcsn_names=dcl_dcsn_names, rules=rules, 
         benchmark_name=benchmark_name, n_jobs=2, 
-        col_names=col_names
+        extra=extra
     )
 
 However, if the logic of the new metric is different from that of NTL, but they differ only in the denominators when 
@@ -159,23 +163,24 @@ to specify which columns are used for denominators.
     reporter = RuleReporter()
     reporter.register_metric('new_loss', metrics.NTL)
     
-    col_names = {
-        'new_loss': {
+    extra = [
+        {
+            'metric_name': 'new_loss',
             'base_name': 'new_ntl',
-            'acc_denom_name': 'gmv', # if not provided, accuracy would not be computed
-            'cov_denom_name': 'loss',
-            'imp_denom_name': 'gmv',
+            'accuracy_denominator_name': 'gmv', # if not provided, accuracy would not be computed
+            'coverage_denominator_name': 'loss',
+            'impact_denominator_name': 'gmv',
         }
-    }
+    ]
     
     res = reporter.evaluate(
         raw, amt_name, params=rule_params, metric_names=metric_names, 
         weight_name=weight_name, dcl_dcsn_names=dcl_dcsn_names, rules=rules, 
         benchmark_name=benchmark_name, n_jobs=2, 
-        col_names=col_names
+        extra=extra
     )
 
-Note that if some of denominators are not provided, say ``acc_denom_name`` remains ``None``, then accuracy will not be 
+Note that if some of denominators are not provided, say ``accuracy_denominator_name`` remains ``None``, then accuracy will not be 
 computed for ``new_loss``.
 
 Most use cases should be covered by the above two examples. Sometimes, one may propose a customized metric that cannot 
@@ -212,9 +217,9 @@ consumer, or device.
             amt_name=amt_name, 
             weight_name=weight_name, 
             base_name=base_name,
-            acc_denom_name=None,
-            cov_denom_name=None,
-            imp_denom_name=base_name,
+            accuracy_denominator_name=None,
+            coverage_denominator_name=None,
+            impact_denominator_name=base_name,
             total=total,
             eps=eps
         )
@@ -279,5 +284,5 @@ the overridden value.
         raw, amt_name, params=rule_params, metric_names=metric_names, 
         weight_name=weight_name, dcl_dcsn_names=dcl_dcsn_names, rules=rules, 
         benchmark_name=benchmark_name, n_jobs=2, 
-        col_names=col_names, group_name='cust_tenure'
+        extra=extra, group_name='cust_tenure'
     )
