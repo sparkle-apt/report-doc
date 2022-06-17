@@ -99,7 +99,10 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>max_group_num</strong> (<em>int</em>) – maximum number of groups accepted to run per-group analysis</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_group_num</strong> (<em>int</em>) – maximum number of groups accepted to run per-group analysis, defaults to 5</p></li>
+<li><p><strong>prec</strong> (<em>int</em>) – display precision, defaults to 2</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py property">
@@ -115,7 +118,9 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="report.rule_reporter.RuleReporter.default_metric_names">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_metric_names</span></span><a class="headerlink" href="#report.rule_reporter.RuleReporter.default_metric_names" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Default metrics to compute, which are <code class="xref py py-class docutils literal notranslate"><span class="pre">report.Metrics.N</span></code> and 
+<code class="xref py py-class docutils literal notranslate"><span class="pre">report.Metrics.GMV</span></code></p>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="report.rule_reporter.RuleReporter.col_names">
@@ -130,7 +135,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – name of metric</p></li>
-<li><p><strong>metric</strong> (<a class="reference internal" href="metrics.html#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – child class of <code class="docutils literal notranslate"><span class="pre">BaseMetric</span></code></p></li>
+<li><p><strong>metric</strong> (<a class="reference internal" href="metrics.html#report.metrics.BaseMetric" title="report.metrics.BaseMetric"><em>BaseMetric</em></a>) – child class of <code class="xref py py-class docutils literal notranslate"><span class="pre">report.Metrics.BaseMetric</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -139,7 +144,18 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="report.rule_reporter.RuleReporter.decorate">
 <span class="sig-name descname"><span class="pre">decorate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.rule_reporter.RuleReporter.decorate" title="Permalink to this definition"></a></dt>
-<dd><p>Decorate report</p>
+<dd><p>Decorate report display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pandas.DataFrame</em>) – the report dataframe to make pretty</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns a Styler object. Contains methods for building a styled HTML representation of the DataFrame.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>DataFrame.style</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -150,14 +166,15 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>raw</strong> (<em>pandas.DataFrame</em>) – order level dataframe containing columns specified by 
 <code class="docutils literal notranslate"><span class="pre">amt_name</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_name</span></code> (optional), <code class="docutils literal notranslate"><span class="pre">dcl_dcsn_names</span></code> (optional), 
-<code class="docutils literal notranslate"><span class="pre">col_names</span></code> (optional), and required by computation in <code class="docutils literal notranslate"><span class="pre">rules</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">col_names</span></code> (optional), and other columns required by computation in <code class="docutils literal notranslate"><span class="pre">rules</span></code></p></li>
 <li><p><strong>amt_name</strong> (<em>str</em>) – name of order amount column</p></li>
 <li><p><strong>metric_names</strong> (<em>list</em>) – list of metric names to compute; for non built-in metrics, need to first
-register by calling <code class="docutils literal notranslate"><span class="pre">self.register_metric()</span></code>; <code class="docutils literal notranslate"><span class="pre">n</span></code> and <code class="docutils literal notranslate"><span class="pre">gmv</span></code> are by default computed</p></li>
+register by calling <code class="xref py py-func docutils literal notranslate"><span class="pre">report.rule_reporter.RuleReporter.register_metric()`()</span></code>; 
+<code class="docutils literal notranslate"><span class="pre">n</span></code> and <code class="docutils literal notranslate"><span class="pre">gmv</span></code> are by default computed</p></li>
 <li><p><strong>weight_name</strong> (<em>str</em>) – name of sample weight column, defaults to None, where weights of orders 
 are treated as <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
 <li><p><strong>dcl_dcsn_names</strong> (<em>list</em>) – list of columns indicating decline decisions for each rule, 
-1 for declining and 0 otherwise</p></li>
+indicating decline if value is <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> otherwise</p></li>
 <li><p><strong>rules</strong> (<em>dict</em>) – <p>dict of rules, example of which is as follows</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rule</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">dcl_dcsn</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;merchant_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;some_merchant_id&#39;</span><span class="p">)</span>
@@ -174,10 +191,9 @@ are treated as <code class="docutils literal notranslate"><span class="pre">1</s
 </pre></div>
 </div>
 <p>Its keys are rule reference names, and values are <code class="docutils literal notranslate"><span class="pre">dict</span></code> containing rule function returning 
-decline decision (1 for declining and 0 otherwise) and extra info <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Extra info would 
-be appended to returned value.</p>
+decline decision (1 for declining and 0 otherwise)</p>
 </p></li>
-<li><p><strong>benchmark_name</strong> (<em>str</em>) – defaults to None; if not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it serves as benchmark against which 
+<li><p><strong>benchmark_name</strong> (<em>str</em>) – defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>; if not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it serves as benchmark against which 
 all other rules compute performance lift</p></li>
 <li><p><strong>eps</strong> (<em>float</em>) – small number preventing being divided by zero issue</p></li>
 <li><p><strong>n_jobs</strong> (<em>int</em>) – number of parallel processes</p></li>
@@ -194,16 +210,17 @@ to compute ntl, need to specify the column name of ntl in dataframe:</p>
 </ul>
 </dd>
 <dt class="field-even">Params list params</dt>
-<dd class="field-even"><p>list of dict of dict</p>
+<dd class="field-even"><p>list of dict</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
     <span class="p">{</span>
-        <span class="s1">&#39;rule_0&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">cutoff</span><span class="s1">&#39;: 100}, </span>
+        <span class="s1">&#39;rule_0&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;cutoff&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span> 
         <span class="s1">&#39;rule_1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;cutoff&#39;</span><span class="p">:</span> <span class="mi">150</span><span class="p">}</span>
     <span class="p">},</span>
     <span class="o">...</span>
 <span class="p">]</span>
 </pre></div>
 </div>
+<p>defaults to <code class="docutils literal notranslate"><span class="pre">[{}]</span></code></p>
 </dd>
 </dl>
 </dd></dl>
